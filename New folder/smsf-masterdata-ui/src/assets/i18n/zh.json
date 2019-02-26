@@ -1,0 +1,196 @@
+{	
+    "masterdata": {
+		"SubTitle": "Master Data",
+		"application":{
+			"message":{
+				"alertTitle":"删除",
+				"success":"删除成功",
+				"eroor":"删除失败"
+			}
+		},
+		"nctype":{
+			"title": "Nc Type",
+			"field":{
+				"id":"ID",
+				"name":"类型名称",
+				"process":"流程",
+				"parent":"父ID"
+			},
+			"message": {
+				"deleteComfirmation":"确认删除 [{{id}}] 吗?",
+				"alertTitle":"alertTitle",
+				"title":"提示信息",
+				"deleteSuccessful": "删除成功",
+				"deleteFailed": "deleteFailed",
+				"ValueRequied": "必填",
+				"addSuccess":"添加成功",
+				"updateSuccess":"修改成功"
+			}
+		},
+		"process":{
+			"title": "Process",
+			"field":{
+				"id":"ID",
+				"name":"名称",
+				"companyservicelevelName":"公司服务等级"
+			},
+			"message": {
+				"deleteComfirmation":"确认删除 [{{id}}] 吗?",
+				"alertTitle":"删除成功",
+				"deleteSuccessful": "删除成功",
+				"title":"提示信息",
+				"deleteFailed": "删除失败",
+				"ValueRequied": "必填字段",
+				"addSuccess":"添加成功",
+				"updateSuccess":"修改成功"
+			}
+		},
+		"company":{
+			"title": "Company Service Level",
+			"field":{
+				"id":"ID",
+				"parentId":"父ID",
+				"name":"名称",
+				"code":"编码"
+			},
+			"message": {
+				"deleteComfirmation":"确认删除 [{{id}}] 吗?",
+				"alertTitle":"删除成功",
+				"deleteSuccessful": "删除成功",
+				"title":"提示信息",
+				"deleteFailed": "删除失败",
+				"ValueRequied": "必填字段",
+				"addSuccess":"添加成功",
+				"updateSuccess":"修改成功"
+			}
+		},
+		"cutofftime": {
+			"title": "Cutoff Time",
+            "field": {
+                "id": "ID",
+                "process": "流程",
+                "time": "时间"
+            },
+			"message": {
+				"deleteComfirmation":"确认删除 [{{id}}] 吗?",
+				"alertTitle":"Organization",
+				"deleteSuccessful": "删除成功",
+				"deleteFailed": "删除失败",
+				"ValueRequied": "必填字段",
+				"addSuccess":"添加成功",
+				"updateSuccess":"更新成功"
+			}
+		},
+		"spt": {
+			"title": "SPT",
+            "field": {
+                "id": "ID",
+                "process": "流程",
+				"spt": "Spt",
+				"step": "步骤"
+            },
+			"message": {
+				"deleteComfirmation":"确认删除 [{{id}}] 吗?",
+				"alertTitle":"Organization",
+				"deleteSuccessful": "删除成功",
+				"deleteFailed": "删除失败",
+				"ValueRequied": "必填字段",
+				"addSuccess":"添加成功",
+				"updateSuccess":"更新成功"
+			}
+		},
+		"tat":{
+			"title": "TAT",
+			"field": {
+				"id":"ID",
+				"process":"流程",
+				"tat":"TAT"
+			},
+			"message": {
+				"deleteComfirmation":"确认删除 [{{id}}] 吗?",
+				"alertTitle":"删除成功",
+				"deleteSuccessful": "删除成功",
+				"deleteFailed": "删除失败",
+				"ValueRequied": "必填字段",
+				"updateSuccess": "修改成功",
+				"addSuccess":"添加成功"
+			}
+		},
+		"step":{
+			"title": "step",
+			"field": {
+				"id":"ID",
+				"step":"步骤",
+				"name": "名称",
+				"process":"流程"
+			},
+			"message": {
+				"deleteComfirmation":"确认删除 [{{id}}] 吗?",
+				"alertTitle":"删除成功",
+				"deleteSuccessful": "删除成功",
+				"deleteFailed": "删除失败",
+				"ValueRequied": "必填字段",
+				"error":"错误",
+				"nameIsNotNull":"名称不能为空"
+			}
+		},
+		"clientServiceLevel":{
+			"title": "Client Service Level",
+			"field": {
+				"id":"ID",
+				"process":"流程",
+				"code": "编号",
+				"parent": "父ID",
+				"name": "名称",
+				"ety":"Ety"
+			},
+			"message": {
+				"deleteComfirmation":"确认删除 [{{id}}] 吗?",
+				"alertTitle":"删除成功",
+				"deleteSuccessful": "删除成功",
+				"deleteFailed": "删除失败",
+				"ValueRequied": "必填字段"
+			}
+		},
+        "data": {
+            "releateList": {
+                "all": "全部",
+                "releated": "已关联",
+                "noReleated": "未关联"
+            }
+        },
+        "message": {
+			"title":"提示信息",
+            "deleteComfirmation": "确认删除 [{{id}}] 吗?",
+            "batchdeleteComfirmation": "确认删除选中的{{rowcount}}条记录吗?",
+            "deleteSuccessful": "删除成功",
+            "deleteFailed": "删除失败",
+            "unknowError": "发生未知错误！",
+            "noAuth": "无访问权限，请联系管理员!",
+            "addSuccess":"添加成功",
+            "updateSuccess":"更新成功",
+			"inValidData":"非法数据",
+			"ValueRequied":"必须"
+        },
+        "no.": "序号",
+		"Operation": "操作",
+		"add": "新增",
+		"query": "查询",
+		"edit":"修改",
+		"save":"保存",
+		"cancel":"取消",
+        "delete": "删除",
+		"SelectOneData":"请选择要操作的数据",
+        "createTime": "创建时间",
+        "benchDelete": "批量删除",
+        "goToHome": "返回主页",
+        "pleaseLogin": "Please login",
+        "welcomeName": "Welcome {{name}}！",
+		"submit": "提交",
+        "showAllApp":"显示所有应用",
+        "home": {
+            "title": "zh title",
+            "select": "Change language"
+        }
+    }
+}

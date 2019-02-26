@@ -1,0 +1,44 @@
+<div class="ui-g">
+  <div class="ui-g-12 ui-g-padding-15">
+    <smsf-toolbar [title]="cs.L('SubTitle')" [subTitle]="cs.L('nctype.title')" [total]="totalRecords" iconClass="fas fa-building" iconBackGroundColor="#F5A623">
+      <button pButton type="button" (click)="reload()" icon="fas fa-sync" class="ui-button-action"></button>
+      <button pButton (click)="showQuery()" type="button" [label]="cs.L('query')" icon="fas fa-search" class="ui-button-success"></button>
+      <button pButton type="button" (click)="add()" icon="fas fa-plus" [label]="cs.L('add')" class="ui-button-success"></button>
+    </smsf-toolbar>
+  </div>
+  <div>
+    <p-treeTable #table [value]="treedatas" [paginator]="true" [rows]="pageSize" [lazy]="true" [rowHover]="true" selectionMode="checkbox" [(selection)]="selectedNodes"
+    (onLazyLoad)="loadNodes($event)"[totalRecords]="totalRecords" [loading]="loading" (onNodeExpand)="onNodeExpand($event)">
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th style="width:3em">{{cs.L('Operation')}}</th>
+          <th style="width:10em">{{cs.L('nctype.field.id')}}</th>       
+          <th style="width:10em">{{cs.L('nctype.field.name')}}</th>
+          <th style="width:10em">{{cs.L('nctype.field.parent')}}</th>
+          <th style="width:10em">{{cs.L('nctype.field.process')}}</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowNode let-rowData="rowData" let-columns="columns">
+        <tr [ttSelectableRow]="rowNode">
+          <td class="operation" style="text-align:center">
+            <a [title]="cs.L('edit')" href="#" (click)="edit($event, rowData.id)">
+              <i class="fas fa-pencil-alt"></i>
+            </a>
+            <a [title]="cs.L('delete')" class="action-delete" href="#" (click)="delete($event, rowData)">
+              <i class="fas fa-trash-alt"></i>
+            </a>
+          </td>
+          <td><p-treeTableToggler [rowNode]="rowNode"></p-treeTableToggler>{{rowData.id}}</td>
+          <td>{{rowData.typeName}}</td>
+          <td>{{rowData.parentId}}</td>
+          <td>{{rowData.processName}}</td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="paginatorleft">
+        <smsf-page-summary [first]="first" [pageSize]="pageSize" [totalRecords]="totalRecords"></smsf-page-summary>
+     </ng-template>
+    </p-treeTable>
+  </div>
+</div>
+<app-query #querySidebar (reload)="queryreload($event)"></app-query>
+<app-edit #editSidebar (reload)="reload()"></app-edit>

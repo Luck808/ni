@@ -1,0 +1,20 @@
+<smsf-sidebar [title]="cs.L('query')" position="right"
+styleClass="ui-sidebar-md" [baseZIndex]="10000" [(visible)]="sidebarVisible">
+ <div class="ui-sidebar-label"><th translate>{{cs.L('process.field.id')}}</th></div>
+  <div class="ui-sidebar-control">
+    <input type="text" pInputText [(ngModel)]="data.id" readonly />
+  </div>
+  <div class="ui-sidebar-label"><th translate>{{cs.L('process.field.name')}}</th></div>
+  <div class="ui-sidebar-control">
+    <input type="text" pInputText [(ngModel)]="data.name" #name=ngModel/>
+  </div>
+  <div class="ui-sidebar-label"><th translate>{{cs.L('process.field.companyservicelevelName')}}</th></div>
+  <div class="ui-sidebar-control">
+    <p-dropdown [options]="companyServicelevelOptions" [(ngModel)]="data.companyServiceLevelId" placeholder="Select Company Service Level" 
+    (onChange)="changeCompanyOptions($event)" [style]="{'width':'100%'}" filter="true"></p-dropdown>
+  </div>
+  <div class="ui-sidebar-buttons">
+    <button pButton type="button" (click)="close()" [label]="cs.L('cancel')" class="ui-button-secondary"></button>
+    <button pButton type="button" (click)=" onSubmit()" [label]="cs.L('query')" class="ui-button-info"></button>
+  </div>
+</smsf-sidebar>
