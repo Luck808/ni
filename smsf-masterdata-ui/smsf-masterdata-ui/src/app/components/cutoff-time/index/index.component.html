@@ -1,0 +1,46 @@
+<div class="ui-g">
+  <div class="ui-g-12 ui-g-padding-15">
+    <smsf-toolbar [subTitle]="cs.L('cutofftime.title')" [title]="cs.L('SubTitle')"  [total]="totalRecords" iconClass="fas fa-building" iconBackGroundColor="#F5A623">
+      <button pButton type="button" (click)="reload()" icon="fas fa-sync" class="ui-button-action"></button>
+      <button pButton (click)="showQuery()" type="button" [label]="cs.L('query')" icon="fas fa-search" class="ui-button-success"></button>
+      <button pButton type="button" (click)="add()" icon="fas fa-plus" [label]="cs.L('add')" class="ui-button-success"></button>
+    </smsf-toolbar>
+  </div>
+  <div>
+    <p-treeTable #table [columns]="tableCols" [value]="treedatas" [lazy]="true" (onLazyLoad)="loadPage($event)" [paginator]="true"
+      selectionMode="checkbox" [(selection)]="selectedNodes" dataKey="id"
+       [rowHover]="true" [first]="first" [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions] = "pageSizeArray" 
+      (onNodeExpand)="onNodeExpand($event)"> 
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th style="width:5em">{{cs.L('Operation')}}</th>
+          <th style="width:15em">{{cs.L('cutofftime.field.id')}}</th>
+          <th style="width:15em">{{cs.L('cutofftime.field.process')}}</th>
+          <th style="width:15em">{{cs.L('cutofftime.field.time')}}</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowNode let-rowData="rowData" let-columns="columns">
+        <tr [ttSelectableRow]="rowNode">
+          <td class="operation text-center">
+            <a [title]="cs.L('edit')" href="#" (click)="edit($event, rowData.id)">
+              <i class="fas fa-pencil-alt"></i>
+            </a>
+            <a [title]="cs.L('delete')" class="action-delete" href="#" (click)="delete($event, rowData)">
+              <i class="fas fa-trash-alt"></i>
+            </a>
+          </td>
+          <td>{{rowData.id}}</td>
+          <td>{{rowData.processName}}</td>
+          <td>{{rowData.time}}</td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="paginatorleft">
+        <smsf-page-summary [first]="first" [pageSize]="pageSize" [totalRecords]="totalRecords"></smsf-page-summary>
+     </ng-template>
+    </p-treeTable>
+  </div>
+</div>
+<app-select #querySidebar (closed)="queryreload($event)"></app-select>
+<app-edit #editSidebar (reload)="reload()"></app-edit>
+
+

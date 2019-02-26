@@ -1,0 +1,27 @@
+<smsf-sidebar [title]="id?cs.L('edit'):cs.L('add')" position="right"
+styleClass="ui-sidebar-md" [baseZIndex]="10000" [(visible)]="sidebarVisible">
+ <div class="ui-sidebar-label"><th translate>{{cs.L('nctype.field.id')}}</th></div>
+  <div class="ui-sidebar-control">
+    <input type="text" pInputText [(ngModel)]="data.id"/>
+  </div>
+  <div class="ui-sidebar-label"><th translate>{{cs.L('nctype.field.name')}}*</th></div>
+  <div class="ui-sidebar-control">
+    <input type="text" pInputText [(ngModel)]="data.typeName" #name=ngModel required/>
+    <span [style.display]="name.valid ? 'none':'block'"><span style="color:red;">{{cs.L("message.ValueRequied")}}</span></span>
+  </div>
+  <div class="ui-sidebar-label"><th translate>{{cs.L('nctype.field.parent')}}*</th></div>
+  <div class="ui-sidebar-control">
+    <p-dropdown [options]="NcTypeOptions" [(ngModel)]="data.parentId" placeholder="ROOT" 
+    (onChange)="changeNcTypeOptions($event)" [style]="{'width':'100%'}" #parentId=ngModel #companyId required filter="true"></p-dropdown>
+    <span [style.display]="parentId.valid ? 'none':'block'"><span style="color:red;">{{cs.L("message.ValueRequied")}}</span></span>
+  </div>
+  <div class="ui-sidebar-label"><th translate>{{cs.L('nctype.field.process')}}</th></div>
+  <div class="ui-sidebar-control">
+    <p-dropdown [options]="ProcessOptions" [(ngModel)]="data.processId" placeholder="Select Process" 
+    (onChange)="changeProcessOptions($event)" [style]="{'width':'100%'}" filter="true"></p-dropdown>
+  </div>
+  <div class="ui-sidebar-buttons">
+    <button pButton type="button" (click)="close()" [label]="cs.L('cancel')" class="ui-button-secondary"></button>
+    <button pButton type="button" [disabled]="!name.valid || !parentId.valid" (click)="save()" [label]="cs.L('save')" class="ui-button-info"></button>
+  </div>
+</smsf-sidebar>

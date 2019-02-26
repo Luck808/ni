@@ -1,0 +1,25 @@
+<smsf-sidebar [title]="cs.L('query')" position="right"
+styleClass="ui-sidebar-md" [baseZIndex]="10000" [(visible)]="sidebarVisible">
+  <div class="ui-sidebar-label"><th translate>{{cs.L('spt.field.id')}}</th></div>
+  <div class="ui-sidebar-control">
+    <input type="text" pInputText [(ngModel)]="data.id"/>
+  </div>
+  <div class="ui-sidebar-label"><th translate>{{cs.L('spt.field.process')}}</th></div>
+  <div class="ui-sidebar-control">
+    <p-dropdown [options]="processOptions" [(ngModel)]="data.processId" placeholder="Select Process" 
+    (onChange)="changeProcessOptions($event)" [style]="{'width':'100%'}" filter="true"></p-dropdown>
+  </div>
+  <div class="ui-sidebar-label"><th translate>{{cs.L('spt.field.step')}}</th></div>
+  <div class="ui-sidebar-control">
+    <p-dropdown [options]="stepOptions" [(ngModel)]="data.stepId" placeholder="Select Step" 
+    (onChange)="changeStepOptions($event)" [style]="{'width':'100%'}" filter="true"></p-dropdown>
+  </div>
+  <div class="ui-sidebar-label"><th translate>{{cs.L('spt.field.spt')}}</th></div>
+  <div class="ui-sidebar-control">
+    <input type="text" pInputText [(ngModel)]="data.spt"/>
+  </div>
+  <div class="ui-sidebar-buttons">
+    <button pButton type="button" (click)="close()" [label]="cs.L('cancel')" class="ui-button-secondary"></button>
+    <button pButton type="button" (click)="onSubmit()" [label]="cs.L('query')" class="ui-button-info"></button>
+  </div>
+</smsf-sidebar>

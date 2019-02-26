@@ -1,0 +1,46 @@
+<div class="ui-g">
+  <div class="ui-g-12 ui-g-padding-15">
+    <smsf-toolbar [subTitle]="cs.L('spt.title')" [title]="cs.L('SubTitle')"  [total]="totalRecords" iconClass="fas fa-building" iconBackGroundColor="#F5A623">
+      <button pButton type="button" (click)="reload()" icon="fas fa-sync" class="ui-button-action"></button>
+      <button pButton (click)="showQuery()" type="button" [label]="cs.L('query')" icon="fas fa-search" class="ui-button-success"></button>
+      <button pButton type="button" (click)="add()" icon="fas fa-plus" [label]="cs.L('add')" class="ui-button-success"></button>
+    </smsf-toolbar>
+  </div>
+  <div>
+    <p-table #table [columns]="tableCols" [value]="tableData" [lazy]="true" (onLazyLoad)="loadPage($event)" [paginator]="true"
+      dataKey="id" [rowHover]="true" [first]="first" [rows]="pageSize" [totalRecords]="totalRecords" [rowsPerPageOptions] = "pageSizeArray">
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th style="width:8em">{{cs.L('Operation')}}</th>
+          <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+            {{col.header}}
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr [pSelectableRow]="rowData">
+          <td class="operation">
+            <a [title]="cs.L('edit')" href="#" (click)="edit($event, rowData.id)">
+              <i class="fas fa-pencil-alt"></i>
+            </a>
+            <a [title]="cs.L('delete')" class="action-delete" href="#" (click)="delete($event, rowData)">
+              <i class="fas fa-trash-alt"></i>
+            </a>
+          </td>
+          <td>{{rowData.id}}</td>
+          <td>{{rowData.processName}}</td>
+          <td>{{rowData.spt}}</td>
+          <td>{{rowData.stepName}}</td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="paginatorleft">
+        <smsf-page-summary [first]="first" [pageSize]="pageSize" [totalRecords]="totalRecords"></smsf-page-summary>
+     </ng-template>
+    </p-table>
+  </div>
+</div>
+<app-select #querySidebar (closed)="queryreload($event)"></app-select>
+<app-edit #editSidebar (reload)="reload()"></app-edit>
+
+
+

@@ -1,0 +1,23 @@
+<smsf-sidebar [title]="id?cs.L('edit'):cs.L('add')" position="right"
+styleClass="ui-sidebar-md" [baseZIndex]="10000" [(visible)]="sidebarVisible">
+  <div class="ui-sidebar-label"><th translate>{{cs.L('cutofftime.field.id')}}</th></div>
+  <div class="ui-sidebar-control">
+    <input type="text" pInputText [(ngModel)]="data.id"/>
+  </div>
+  <div class="ui-sidebar-label"><th translate>{{cs.L('cutofftime.field.process')}}</th></div>
+  <div class="ui-sidebar-control">
+    <p-dropdown [options]="processOptions" [(ngModel)]="data.processId" placeholder="Select Process" 
+    (onChange)="changeProcessOptions($event)" [style]="{'width':'100%'}" filter="true"></p-dropdown>
+  </div>
+  <div class="ui-sidebar-label"><th translate>{{cs.L('cutofftime.field.time')}}</th></div>
+  <div class="ui-sidebar-control">
+    <input type="text" pInputText [(ngModel)]="data.time" #name=ngModel/>
+    <span [style.display]="name.valid ? 'none':'block'"><span style="color:red;">{{cs.L("cutofftime.message.ValueRequied")}}</span></span>
+  </div>
+  <div class="ui-sidebar-buttons">
+    <button pButton type="button" (click)="close()" [label]="cs.L('cancel')" class="ui-button-secondary"></button>
+    <button pButton type="button" [disabled]="!name.valid" (click)="save()" [label]="cs.L('save')" class="ui-button-info"></button>
+  </div>
+
+</smsf-sidebar>
+

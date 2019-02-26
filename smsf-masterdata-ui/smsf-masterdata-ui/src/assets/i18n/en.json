@@ -1,0 +1,188 @@
+{
+    "masterdata": {
+		"SubTitle": "Master Data" ,
+		"application":{
+			"message":{
+				"alertTitle":"Delete",
+				"success":"delete success",
+				"eroor":"delete error"
+			}
+		},
+		"nctype":{
+			"title": "Nc Type",
+			"field":{
+				"id":"ID",
+				"name":"Type Name",
+				"process":"Process",
+				"parent":"Parent"
+			},
+			"message": {
+				"deleteComfirmation":"Are you sure you want to delete [{{id}}] ?",
+				"alertTitle":"Delete",
+				"deleteSuccessful": "deleteSuccessful",
+				"deleteFailed": "deleteFailed",
+				"ValueRequied": "message is requied",
+				"error":"error",
+				"nameIsNotNull":"Name Is Not Null"
+			}
+		},
+		"process":{
+			"title": "Process",
+			"field":{
+				"id":"ID",
+				"name":"Name",
+				"companyservicelevelName":"Company Service Level"
+			},
+			"message": {
+				"deleteComfirmation":"Are you sure you want to delete [{{id}}] ?",
+				"alertTitle":"Delete",
+				"deleteSuccessful": "deleteSuccessful",
+				"deleteFailed": "deleteFailed",
+				"ValueRequied": "message is requied",
+				"error":"error",
+				"nameIsNotNull":"Name Is Not Null"
+			}
+		},
+		"company":{
+			"title": "Company Service Level",
+			"field":{
+				"id":"ID",
+				"parentId":"Parent",
+				"name":"Name",
+				"code":"Code"
+			},
+			"message": {
+				"deleteComfirmation":"Are you sure you want to delete [{{id}}] ?",
+				"alertTitle":"Delete",
+				"deleteSuccessful": "deleteSuccessful",
+				"deleteFailed": "deleteFailed",
+				"ValueRequied": "message is requied",
+				"error":"error",
+				"nameIsNotNull":"Name Is Not Null"
+			}
+		},
+		"cutofftime": {
+			"title": "Cutoff Time",
+            "field": {
+                "id": "ID",
+                "process": "Process",
+                "time": "Time"
+            },
+			"message": {
+				"deleteComfirmation":"Are you sure you want to delete [{{id}}] ?",
+				"alertTitle":"Delete",
+				"deleteSuccessful": "deleteSuccessful",
+				"deleteFailed": "deleteFailed",
+				"ValueRequied": "message is requied",
+				"error":"error",
+				"nameIsNotNull":"Name Is Not Null"
+			}
+		},
+		"spt": {
+			"title": "SPT",
+            "field": {
+                "id": "ID",
+                "process": "Process",
+				"spt": "SPT",
+				"step": "Step"
+            },
+			"message": {
+				"deleteComfirmation":"Are you sure you want to delete [{{id}}] ?",
+				"alertTitle":"Delete",
+				"deleteSuccessful": "deleteSuccessful",
+				"deleteFailed": "deleteFailed",
+				"ValueRequied": "message is requied",
+				"error":"error",
+				"nameIsNotNull":"Name Is Not Null"
+			}
+		},
+		"tat":{
+			"title": "TAT",
+			"field": {
+				"id":"ID",
+				"process":"Process",
+				"tat":"TAT"
+			},
+			"message": {
+				"deleteComfirmation":"Are you sure you want to delete [{{id}}] ?",
+				"alertTitle":"Delete",
+				"deleteSuccessful": "deleteSuccessful",
+				"deleteFailed": "deleteFailed",
+				"ValueRequied": "message is requied",
+				"error":"error",
+				"nameIsNotNull":"Name Is Not Null"
+			}
+		},
+		"step":{
+			"title": "step",
+			"field": {
+				"id":"ID",
+				"step":"Step",
+				"name": "Name",
+				"process":"Process"
+			},
+			"message": {
+				"deleteComfirmation":"Are you sure you want to delete [{{id}}] ?",
+				"alertTitle":"Delete",
+				"deleteSuccessful": "deleteSuccessful",
+				"deleteFailed": "deleteFailed",
+				"ValueRequied": "message is requied",
+				"error":"error",
+				"nameIsNotNull":"Name Is Not Null"
+			}
+		},
+		"clientServiceLevel":{
+			"title": "Client Service Level",
+			"field": {
+				"id":"ID",
+				"process":"Process",
+				"code": "Code",
+				"parent": "Parent",
+				"name": "Name",
+				"ety":"Ety"
+			},
+			"message": {
+				"deleteComfirmation":"Are you sure you want to delete [{{id}}] ?",
+				"alertTitle":"Delete",
+				"deleteSuccessful": "deleteSuccessful",
+				"deleteFailed": "deleteFailed",
+				"ValueRequied": "message is requied",
+				"error":"error",
+				"nameIsNotNull":"Name Is Not Null"
+			}
+		},
+		"message": {
+			"title":"reminder information",
+            "deleteComfirmation": "Are you sure you want to delete [{{id}}] ?",
+            "batchdeleteComfirmation": "Are you sure you want to delete the selected {{rowcount}} record ?",
+            "deleteSuccessful": "Delete successfully",
+            "deleteFailed": "Delete failed",
+            "unknowError": "Unknown error！",
+            "noAuth": "No access, please contact the administrator!",
+            "addSuccess":"Add success",
+            "updateSuccess":"Update success",
+			"inValidData":"Invalid data",
+			"ValueRequied": "Requied"
+        },
+        "no.": "No",
+		"Operation": "Operation",
+		"add": "Add",
+		"query": "Query",
+		"edit": "Edit",
+		"save":"Save",
+		"cancel":"Cancel",
+        "delete": "Delete",
+		"SelectOneData":"Please select the records to be operated",
+        "createTime": "CreateTime",
+        "benchDelete": "Batch Delete",
+        "goToHome": "Go To Home",
+        "pleaseLogin": "Please login",
+        "welcomeName": "Welcome {{name}}！",
+		"submit": "Submit",
+        "showAllApp":"Show All App",
+        "home": {
+            "title": "zh title",
+            "select": "Change language"
+		}
+	}
+}

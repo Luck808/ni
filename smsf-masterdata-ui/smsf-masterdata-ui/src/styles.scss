@@ -1,0 +1,233 @@
+@import "~smsf-ui-layout/assets/mytheme/_variables.scss";
+@import "~smsf-ui-layout/assets/designer/_mixins.scss";
+
+/* Add your customizations of theme here */
+
+//Customize selectbutton value
+$toggleButtonActiveIconColor:#fff;
+$toggleButtonActiveFocusIconColor:#fff;
+$toggleButtonActiveHoverIconColor:#fff;
+
+body {
+    //common
+    .padding-lr-0 {
+        padding-left:0 !important;
+        padding-right:0 !important;
+    }
+    .padding-tb-0 {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+    .padding-l-0 {
+        padding-left: 0 !important;
+    }
+    .padding-r-0 {
+        padding-right:0 !important;
+    }
+    .padding-t-0 {
+        padding-top:0 !important;
+    }
+    .padding-b-0 {
+        padding-bottom:0 !important;
+    }
+    .padding-t-10 {
+        padding-top: 10px !important;
+    }
+    .padding-l-10 {
+        padding-left:10px !important;
+    }
+    .text-left {
+        text-align: left !important;
+    }
+    .text-center {
+        text-align: center !important;
+    }
+    .text-right {
+        text-align: right !important;
+    }
+    .f-l {
+        float:left;
+    }
+    .f-r {
+        float:right;
+    }
+    .font-700 {
+        font-weight: 700;
+    }
+
+    .fa-plus-square-o:before {
+        content: "\f0fe";
+    }
+
+    .fa-minus-square-o:before {
+        content:"\f146";
+    }
+
+    //selectbutton
+    .ui-selectbutton {
+        .ui-button {
+            background-color: $toggleButtonBgColor;
+            border: $toggleButtonBorder;
+            color: $toggleButtonTextColor;
+            @include transition($buttonTransition);
+
+            .ui-button-icon-left {
+                color: $toggleButtonIconColor;
+            }
+
+            &:not(.ui-state-disabled):not(.ui-state-active):hover {
+                background-color: $toggleButtonHoverBgColor;
+                border-color: $toggleButtonHoverBorderColor;
+                color: $toggleButtonHoverTextColor;
+
+                .ui-button-icon-left {
+                    color: $toggleButtonHoverIconColor;
+                }
+            }
+
+            &:not(.ui-state-disabled):not(.ui-state-active).ui-state-focus {
+                background-color: $toggleButtonFocusBgColor;
+                border-color: $toggleButtonFocusBorderColor;
+                color: $toggleButtonFocusTextColor;
+                outline: $toggleButtonFocusOutline;
+
+                .ui-button-icon-left {
+                    color: $toggleButtonFocusIconColor;
+                }
+            }
+
+            &.ui-state-active {
+                background-color: $toggleButtonActiveBgColor;
+                border-color: $toggleButtonActiveBorderColor;
+                color: $toggleButtonActiveTextColor;
+
+                .ui-button-icon-left {
+                    color: $toggleButtonActiveIconColor;
+                }
+
+                &:hover {
+                    background-color: $toggleButtonActiveHoverBgColor;
+                    border-color: $toggleButtonActiveHoverBorderColor;
+                    color: $toggleButtonActiveHoverTextColor;
+
+                    .ui-button-icon-left {
+                        color: $toggleButtonActiveHoverIconColor;
+                    }
+                }
+
+                &.ui-state-focus {
+                    background-color: $toggleButtonActiveFocusBgColor;
+                    border-color: $toggleButtonActiveFocusBorderColor;
+                    color: $toggleButtonActiveFocusTextColor;
+
+                    .ui-button-icon-left {
+                        color: $toggleButtonActiveFocusIconColor;
+                    }
+                }
+            }
+
+            &:first-child {
+                @include border-radius-left($borderRadius);
+            }
+
+            &:last-child {
+                @include border-radius-right($borderRadius);
+            }
+        }
+    }
+
+    // Master
+    .orgMgt {
+        //ui-treetable
+        .ui-treetable {
+            .ui-treetable-thead {
+                tr>th {
+                    text-align: left;
+                    border-top: 0;
+                    border-bottom: 2px solid #d0d9e1;
+                    height: 40px;
+                    &:first-child {
+                        border-left: 0;
+                    }
+                    &:last-child {
+                        border-right: 0;
+                    }
+                }
+            }
+            .ui-treetable-tbody>tr>td {
+                overflow:hidden;
+                text-overflow:ellipsis;
+                white-space:nowrap;
+                border-left: 0;
+                border-right: 0;
+                height: 31px; // border-top: 0;
+                line-height: 31px;
+                padding: 6px 10px;
+                &.operation {
+                    text-align: center;
+                    >a {
+                        padding: 0 0.8em;
+                        display: block;
+                        float: left;
+                        @include border-radius(3px);
+                    }
+                    >a:not(:last-child) {
+                        margin-right: 0.6em;
+                    }
+                    >a:hover {
+                        background: $primaryColor;
+                        color: #FFFFFF;
+                    }
+                    >a.action-delete {
+                        color: #D82E43;
+                    }
+                    >a:hover.action-delete {
+                        background: #D82E43;
+                        color: #FFFFFF;
+                    }
+                }
+                &.normal-line-height {
+                    line-height: normal;
+                }
+            }
+            .ui-table-tbody>tr.ui-state-highlight {
+                background-color: #fdfedb;
+            }
+            .ui-table-tbody>tr:nth-child(even).ui-state-highlight {
+                background-color: #fdfedb;
+            }
+        }
+
+        //ui-toolbar
+        .ui-toolbar {
+            padding: 0.571em 1.5em;
+            background-color: #ffffff;
+            border:none;
+            border-bottom: 1px solid #d0d9e0;
+            border-radius: 0;
+            .title {
+                padding-top: 10px;
+                font-size:14px;
+                font-weight: 700;
+                color:#666;
+            }
+            button {
+                margin: 5px;
+
+            }
+        }
+        .ui-tree {
+            width: 100%;
+            height: calc(100vh - 246px);
+            border:none;
+        }
+        p-scrollpanel.orgt > div {
+            height: calc(100vh - 250px);
+        }
+    }
+    .hierarchy {
+        .ui-button{
+            width: 10%;
+        }
+    }
+}

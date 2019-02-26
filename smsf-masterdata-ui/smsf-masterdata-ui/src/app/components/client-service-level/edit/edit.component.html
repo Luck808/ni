@@ -1,0 +1,35 @@
+<smsf-sidebar [title]="id?cs.L('edit'):cs.L('add')" position="right"
+    styleClass="ui-sidebar-md" [baseZIndex]="10000" [(visible)]="sidebarVisible">
+  <div class="ui-sidebar-label"><th translate>{{cs.L('clientServiceLevel.field.id')}}</th></div>
+  <div class="ui-sidebar-control">
+    <input type="text" pInputText [(ngModel)]="data.id" />
+  </div>
+  <div class="ui-sidebar-label"><th translate>{{cs.L('clientServiceLevel.field.name')}}*</th></div>
+  <div class="ui-sidebar-control">
+    <input type="text" pInputText [(ngModel)]="data.name" #name=ngModel required />
+    <span [style.display]="name.valid ? 'none':'block'"><span style="color:red;">{{cs.L("message.ValueRequied")}}</span></span>
+  </div>
+  <div class="ui-sidebar-label"><th translate>{{cs.L('clientServiceLevel.field.code')}}</th></div>
+  <div class="ui-sidebar-control">
+    <input type="text" pInputText [(ngModel)]="data.code" />
+  </div>
+  <div class="ui-sidebar-label"><th translate>{{cs.L('clientServiceLevel.field.ety')}}</th></div>
+  <div class="ui-sidebar-control">
+    <input type="text" pInputText [(ngModel)]="data.ety" />
+  </div>
+  <div class="ui-sidebar-label"><th translate>{{cs.L('clientServiceLevel.field.parent')}}*</th></div>
+  <div class="ui-sidebar-control">
+    <p-dropdown [options]="clientServiceLevelOptions" [(ngModel)]="data.parentId" placeholder="Select Client Service Level" 
+    (onChange)="changeclientOptions($event)" [style]="{'width':'100%'}" filter="true" #parentId=ngModel required></p-dropdown>
+    <span [style.display]="parentId.valid ? 'none':'block'"><span style="color:red;">{{cs.L("message.ValueRequied")}}</span></span>
+  </div>
+  <div class="ui-sidebar-label"><th translate>{{cs.L('clientServiceLevel.field.process')}}</th></div>
+  <div class="ui-sidebar-control">
+    <p-dropdown [options]="processOptions" [(ngModel)]="data.processId" placeholder="Select Process" 
+    (onChange)="changeProcessOptions($event)" [style]="{'width':'100%'}" filter="true"></p-dropdown>
+  </div>
+  <div class="ui-sidebar-buttons">
+    <button pButton type="button" (click)="close()" [label]="cs.L('cancel')" class="ui-button-secondary"></button>
+    <button pButton type="button" [disabled]="!name.valid || !parentId.valid" (click)="save()" [label]="cs.L('save')" class="ui-button-info"></button>
+  </div>
+</smsf-sidebar>
